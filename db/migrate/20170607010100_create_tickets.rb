@@ -1,10 +1,11 @@
-class CreateUsers < ActiveRecord::Migration[5.0]
+class CreateTickets < ActiveRecord::Migration[5.0]
   def change
-    create_table :users do |t|
+    create_table :tickets do |t|
       t.string :name
-      t.string :email
+      t.string :description
       t.references :departament, index: true, foreign_key: true
       t.timestamps
+
       
     end
   end

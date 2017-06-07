@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ticket.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ticket.description %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-success"  %> |
+<%= link_to 'Back', tickets_path, class: "btn btn-primary"  %>
+
+
+
