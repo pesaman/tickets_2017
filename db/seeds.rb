@@ -15,7 +15,7 @@ p User.create(name:  "juan",
              admin: true)
 
 p User.create(name:  "pepe'",
-             email: "user@hotmail.com'",
+             email: "user@hotmail.com",
              password:              "password",
              password_confirmation: "password")
 
