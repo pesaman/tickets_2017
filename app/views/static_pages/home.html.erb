@@ -1,10 +1,46 @@
 <div class="center jumbotron">
-  <%=  image_tag("giphy-iloveimg-cropped.gif") %>
+
+  
+<div id="contenedor">
+    <div id="myCarousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item"><img  src="10.jpg" alt="banner1" /></div>
+        <div class="item"><img  src="8.jpg" alt="banner2" /></div>
+        <div class="item"><img  src="la.jpg" alt="banner3" /></div>
+        <div class="item"><img  src="9.jpg" alt="banner4" /></div>
+        <div class="item"><img  src="7.jpg" alt="banner5" /></div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>
+ 
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.myCarousel').carousel({
+            interval: 9000
+        });
+    });
+</script>
+
   <h1>Welcome to Tickets App</h1>
   <h2>
    <%= link_to "Sign up now!", signup_path, class: "btn btn-primary" %>
   </h2>
-  
-
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+  <p>1This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.
+Pretty cool, isn't it?</p>
 </div>
 

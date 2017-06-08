@@ -1,12 +1,49 @@
+<% unless current_user.admin? %>
 <p id="notice"><%= notice %></p>
-
 <h1>Tickets</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Numero</th>
+      <th>Name</th>
+      <th>Satatus</th>
+      <th>Departament</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% user1 = User.find(current_user)%>
+      <% user1.departament.tickets.each do |departamento| %>
+      <% user1.assignments.each do |assignment| %>      
+        <tr>  
+          <td>Ticket <%= departamento.id%></td>
+          <td><%= departamento.description%></td>
+          <td><%= assignment.status%></td>
+          <td><%= departamento.name%></td>
+        
+          <td><%= link_to 'Show', departamento %></td>
+          <td><% %></td>     
+        </tr>
+          <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary" %>
+<% end %>
+
+
+<% if current_user.admin? %>
+<p id="notice"><%= notice %></p>
+<h1>Tickets</h1>
+<table>
+  <thead>
+    <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Mostrar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,16 +54,20 @@
         <td><%= ticket.name %></td>
         <td><%= ticket.description %></td>
         <td><%= link_to 'Show', ticket %></td>
-        <% if current_user.admin? %>
-          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       <% end %>
+        
+          <td><%= link_to 'Edit', edit_ticket_path(ticket), class: "btn btn-success"  %> </td>
+         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  %></td>
+     
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary" %>
-
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="text-center">
+      <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary " %>
+      <%= link_to 'Tickets Asignados', assignments_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

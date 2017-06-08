@@ -24,19 +24,41 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = Ticket.create(ticket_params)
     p 'buchon' *100
+    p session[:user_id] 
+        p 'buchon' *100
     p params 
+    p @ticket
+
+    #crear la asignación
+    @assignment = Assignment.create(status: "iniciado", description: @ticket.description, user_id: current_user.id, ticket_id: @ticket.id)
+
+    #mostrar mensaje de creada la asignación
+
+
+    # respond_to do |format|
+    #   if @assignment
+    #     format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+    #     format.json { render :show, status: :created, location: @ticket }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @ticket.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
     respond_to do |format|
-      if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
-        format.json { render :show, status: :created, location: @ticket }
-      else
-        format.html { render :new }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
+        if @assignment.save
+          format.html { redirect_to assignments_path, notice: 'Assignment was successfully created.' }
+          #format.json { render :index, status: :created, location: @assignment }
+         #assignments_path 
+        else
+          format.html { render :new }
+          format.json { render json: @assignment.errors, status: :unprocessable_entity }
+        end
       end
-    end
-  end
+    end    
+
 
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
@@ -72,4 +94,9 @@ class TicketsController < ApplicationController
     def ticket_params
       params.require(:ticket).permit(:name, :description, :departament_id)
     end
+
+    def assignment_params
+      params.require(:assignment).permit(:status, :description, :user_id, :ticket_id)
+    end
+    
 end

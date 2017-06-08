@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Namevr:</strong>
   <%= @ticket.name %>
 </p>
 
@@ -9,6 +9,8 @@
   <strong>Description:</strong>
   <%= @ticket.description %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-success"  %> |
 <%= link_to 'Back', tickets_path, class: "btn btn-primary"  %>
