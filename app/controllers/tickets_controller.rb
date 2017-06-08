@@ -24,7 +24,13 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = Ticket.create(ticket_params)
+
+    user = User.find(current_user.id)
+    p 'hola user' *10
+    p user.departament_id
+    p ticket_params[:name]
+     p 'hola user' *10
+    @ticket = Ticket.create(name: ticket_params[:name],  description: ticket_params[:description], departament_id: user.departament_id)
     p 'buchon' *100
     p session[:user_id] 
         p 'buchon' *100
@@ -50,7 +56,7 @@ class TicketsController < ApplicationController
     respond_to do |format|
         if @assignment.save
           format.html { redirect_to assignments_path, notice: 'Assignment was successfully created.' }
-          #format.json { render :index, status: :created, location: @assignment }
+          format.json { render :index, status: :created, location: @assignment }
          #assignments_path 
         else
           format.html { render :new }

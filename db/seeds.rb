@@ -23,27 +23,27 @@ user2 = User.create(name:  "pepe'",
              password:              "password",
              password_confirmation: "password")
 
-20.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               departament_id: departament1.id,
-               password:              password,
-               password_confirmation: password)
-end
+# 20.times do |n|
+#   name  = Faker::Name.name
+#   email = "example-#{n+1}@railstutorial.org"
+#   password = "password"
+#   User.create!(name:  name,
+#                email: email,
+#                departament_id: departament1.id,
+#                password:              password,
+#                password_confirmation: password)
+# end
 
 
 
-ticket1 = Ticket.create(name: 'informatica',  description: 'mantenimiento', departament_id: departament1.id)
-ticket2 = Ticket.create(name: 'informatica',  description: 'mantenimiento2', departament_id: departament1.id)
-ticket3 = Ticket.create(name: 'informatica',  description: 'mantenimiento3', departament_id: departament1.id)
-ticket4 = Ticket.create(name: 'informatica',  description: 'mantenimiento4', departament_id: departament1.id)
+# ticket1 = Ticket.create(name: 'informatica',  description: 'mantenimiento', departament_id: departament1.id)
+# ticket2 = Ticket.create(name: 'informatica',  description: 'mantenimiento2', departament_id: departament1.id)
+# ticket3 = Ticket.create(name: 'informatica',  description: 'mantenimiento3', departament_id: departament1.id)
+# ticket4 = Ticket.create(name: 'informatica',  description: 'mantenimiento4', departament_id: departament1.id)
 
 
-assignment1 = Assignment.create(status: 'soporte', description: 'mantenimiento', user_id: user2.id, ticket_id: ticket1.id)
-assignment2 = Assignment.create(status: 'soporte', description: 'mantenimiento', user_id: user2.id, ticket_id: ticket2.id )
+# assignment1 = Assignment.create(status: 'soporte', description: 'mantenimiento', user_id: user2.id, ticket_id: ticket1.id)
+# assignment2 = Assignment.create(status: 'soporte', description: 'mantenimiento', user_id: user2.id, ticket_id: ticket2.id )
 
 
 
