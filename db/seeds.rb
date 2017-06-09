@@ -17,7 +17,7 @@ user1 = User.create(name:  "juan",
              password_confirmation: "password",
              admin: true)
 
-user2 = User.create(name:  "pepe'",
+user2 = User.create(name:  "pepe",
              email: "user@hotmail.com",
              departament_id: departament1.id,
              password:              "password",
@@ -36,14 +36,14 @@ user2 = User.create(name:  "pepe'",
 
 
 
-# ticket1 = Ticket.create(name: 'informatica',  description: 'mantenimiento', departament_id: departament1.id)
-# ticket2 = Ticket.create(name: 'informatica',  description: 'mantenimiento2', departament_id: departament1.id)
-# ticket3 = Ticket.create(name: 'informatica',  description: 'mantenimiento3', departament_id: departament1.id)
-# ticket4 = Ticket.create(name: 'informatica',  description: 'mantenimiento4', departament_id: departament1.id)
+ticket1 = Ticket.create(name: "error 1",  description: "mantenimiento1", departament_id: departament1.id)
+ticket2 = Ticket.create(name: 'error 2',  description: "mantenimiento2", departament_id: departament1.id)
+ticket3 = Ticket.create(name: 'error 3',  description: "mantenimiento3", departament_id: departament1.id)
+ticket4 = Ticket.create(name: 'error4',  description: "mantenimiento4", departament_id: departament1.id)
 
 
-# assignment1 = Assignment.create(status: 'soporte', description: 'mantenimiento', user_id: user2.id, ticket_id: ticket1.id)
-# assignment2 = Assignment.create(status: 'soporte', description: 'mantenimiento', user_id: user2.id, ticket_id: ticket2.id )
+assignment1 = Assignment.create(status: "soporte", description: "mantenimiento", user_id: user2.id, ticket_id: ticket1.id)
+assignment2 = Assignment.create(status: "soporte", description: "mantenimiento", user_id: user2.id, ticket_id: ticket2.id )
 
 
 

@@ -1,54 +1,91 @@
-<p id="notice"><%= notice %></p>
+<% unless current_user.admin? %>
+  <p id="notice"><%= notice %></p>
 
-<h1>Assignments</h1>
+  <h1>Assignments</h1>
 
-<div class="row">
-  <div class="col-sm-12">
-    <div class="text-center">
-      <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary " %>
-      
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-12">
+      <div class="text-center">
+        <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary " %>
+        
+      </div>
     </div>
   </div>
-</div>
-<br>
+  <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Numero</th>
-      <th>Asunto</th>
-      <th>Description</th>
-      <th>Estado</th>
-      <th colspan="13"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <tr>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table style="HEIGHT:100%;WIDTH:100%;" >
+      <tr>
+        <th>Numero</th>
+        <th>Asunto</th>
+        <th>Description</th>
+        <th>Estado</th>
+        
+      </tr>
+    
       <% user1 = User.find(current_user)%>
       <% user1.assignments.each do |assignment| %>
           <% ticket = Ticket.find(assignment.ticket_id) %>
-            
-            <tr>  
-              <td>Ticket <%= ticket.id%></td>
-               <td><%= ticket.name%></td>
-               <td><%= ticket.description%></td>
-               <td><%= assignment.status%></td> 
-              
+              <tr>
+                 <td>Ticket <%= ticket.id%></td>
+                 <td><%= ticket.name%></td>
+                 <td><%= ticket.description%></td>
+                 <td><%= assignment.status%></td>   
+              </tr>    
+         <% end %>
 
-             
+    </table>
+  </div>
+<% end %>
+
+
+
+<% if current_user.admin? %>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Assignments</h1>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-12">
+      <div class="text-center">
+        <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary " %>
         
-              <td><%= link_to 'Show', assignment, class: "btn btn-success" %></td>
-              <td><%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-warning"  %></td>
-              <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-              <td><% %></td>     
-            </tr>
-      <% end %>
-  </tbody>
-
-</table>
-
-<br>
+      </div>
+    </div>
+  </div>
+  <br>
 
 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table>
+      <tr>
+        <th>Numero</th>
+        <th>Persona</th>
+        <th>Asunto</th>
+        <th>Description</th>
+        <th>Estado</th>
+        <th>xxx</th>
+        <th>xxxx</th>
+      </tr>
+    
+      <% assignment1 = Assignment.all %>
+          <% assignment1.each do |assignment| %>
+          <% ticket = Ticket.find(assignment.ticket_id) %>
+              <tr>
+                 <td>Ticket <%= ticket.id%></td>
+                 <td><%= assignment.user.name %></td>
+                 <td>Ticket <%= ticket.name%></td>
+
+                 <td><%= assignment.status%></td> 
+                 <td><%= assignment.description%></td> 
+                
+                
+                 <td><%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-warning btn-table"  %></td>
+                 <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-table" %></td>
+                </tr>    
+         <% end %>
+    </table>
+  </div>
+<% end %>
 

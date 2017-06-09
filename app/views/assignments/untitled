@@ -1,0 +1,41 @@
+<% unless current_user.admin? %>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Assignments</h1>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-12">
+      <div class="text-center">
+        <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary " %>
+        
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table>
+      <tr>
+        <th>Numero</th>
+        <th>Asunto</th>
+        <th>Description</th>
+        <th>Estado</th>
+        
+      </tr>
+    
+      <% user1 = User.find(current_user)%>
+      <% user1.assignments.each do |assignment| %>
+          <% ticket = Ticket.find(assignment.ticket_id) %>
+              <tr>
+                 <td>Ticket <%= ticket.id%></td>
+                 <td><%= ticket.name%></td>
+                 <td><%= ticket.description%></td>
+                 <td><%= assignment.status%></td>   
+              </tr>    
+         <% end %>
+
+    </table>
+  </div>
+<% end %>
+

@@ -41,8 +41,8 @@ class TicketsController < ApplicationController
     @assignment = Assignment.create(status: "iniciado", description: @ticket.description, user_id: current_user.id, ticket_id: @ticket.id)
 
     #mostrar mensaje de creada la asignación
-
-
+    p "*" * 50
+    p @assignment.ticket_id
     # respond_to do |format|
     #   if @assignment
     #     format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }

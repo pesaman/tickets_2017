@@ -1,8 +1,43 @@
+
 <li>
-  <%= gravatar_for user, size: 50 %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+  <% unless current_user.admin? %>
+    <%= gravatar_for user, size: 50 %>
+    <%= link_to user.name, user %>
   <% end %>
 </li>
+
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Description</th>
+      <th>Satatus</th>
+      <th>Departament</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+ <li>
+  <% if current_user.admin? %>
+    <% User.all.each do |user| %>
+     <% end %> 
+      <tr>
+      <td><%= user.id%> </td>
+      <td><%= gravatar_for user, size: 50 %></td>
+      <td><%= link_to user.name, user %></td>
+      
+      <td><%= link_to "Edit Profile", edit_user_path(user.id) %> </td> 
+      <td>| <%= link_to "delete", user, method: :delete, remote: true,
+                                  data: { confirm: "You sure?" } %> </td>
+   
+  <% end %>
+ </tr>
+</li>
+</tbody>
+</table>
+<br>
