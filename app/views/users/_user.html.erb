@@ -31,7 +31,7 @@
       <td><%= gravatar_for user, size: 50 %></td>
       <td><%= link_to user.name, user %></td>
       
-      <td><%= link_to "Edit Profile", edit_user_path(user.id) %> </td> 
+      <td><%= link_to "Edit Profile", edit_user_path(user) %> </td> 
       <td>| <%= link_to "delete", user, method: :delete, remote: true,
                                   data: { confirm: "You sure?" } %> </td>
    

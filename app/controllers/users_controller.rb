@@ -1,6 +1,6 @@
 class UsersController < ApplicationController 
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
+  #before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
   def index
@@ -35,7 +35,10 @@ class UsersController < ApplicationController
   end
 
    def update
-
+    p 'hola' * 50
+    p params[:user]
+    p 'huser' * 50
+     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -44,8 +47,8 @@ class UsersController < ApplicationController
     end
   end
 
- def destroy
-    User.find(params[:id]).destroy
+  def destroy
+    User.find(params[:user]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end
@@ -67,7 +70,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) 
     end
  
 
