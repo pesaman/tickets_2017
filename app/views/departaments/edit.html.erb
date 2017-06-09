@@ -1,6 +1,9 @@
+<% provide(:title, 'Editing Departament') %>
+<% provide(:button_text, 'Editing Departament') %>
 <h1>Editing Departament</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= render 'form', departament: @departament %><br>
 
-<%= render 'form', departament: @departament %>
 
-<%= link_to 'Show', @departament %> |
-<%= link_to 'Back', departaments_path %>
+<%= link_to 'Back', departaments_path, class: "btn btn-info" %>

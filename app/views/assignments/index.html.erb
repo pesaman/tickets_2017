@@ -65,8 +65,8 @@
         <th>Asunto</th>
         <th>Description</th>
         <th>Estado</th>
-        <th>xxx</th>
-        <th>xxxx</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
     
       <% assignment1 = Assignment.all %>
@@ -77,8 +77,9 @@
                  <td><%= assignment.user.name %></td>
                  <td>Ticket <%= ticket.name%></td>
 
-                 <td><%= assignment.status%></td> 
+                 
                  <td><%= assignment.description%></td> 
+                 <td><%= assignment.status%></td> 
                 
                 
                  <td><%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-warning btn-table"  %></td>

@@ -1,14 +1,24 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>  
-      </h1>
-    </section>
-  </aside>
-  
+<h1>Perfil</h1>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table style="HEIGHT:100%;WIDTH:100%;" >
+      <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Departament</th>
+        
+      </tr>
+    
+      <% user1 = User.find(current_user.id)%>
+        <%  depa = user1.departament%>
+              <tr>
+                  <td><%= gravatar_for @user %></td>
+                 <td><%= @user.name %>  </td>
+                 <td><%= @user.email %></td>
+                 <td><%= depa.name %></td>      
+              </tr>    
+        
 
-
-</div>
+    </table>
+  </div>

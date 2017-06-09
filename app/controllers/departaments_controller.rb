@@ -28,7 +28,7 @@ class DepartamentsController < ApplicationController
 
     respond_to do |format|
       if @departament.save
-        format.html { redirect_to @departament, notice: 'Departament was successfully created.' }
+        format.html { redirect_to departaments_path, notice: 'Departament was successfully created.' }
         format.json { render :show, status: :created, location: @departament }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DepartamentsController < ApplicationController
   def update
     respond_to do |format|
       if @departament.update(departament_params)
-        format.html { redirect_to @departament, notice: 'Departament was successfully updated.' }
+        format.html { redirect_to departaments_path, notice: 'Departament was successfully updated.' }
         format.json { render :show, status: :ok, location: @departament }
       else
         format.html { render :edit }

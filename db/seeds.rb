@@ -19,9 +19,23 @@ user1 = User.create(name:  "juan",
 
 user2 = User.create(name:  "pepe",
              email: "user@hotmail.com",
-             departament_id: departament1.id,
+             departament_id: departament2.id,
              password:              "password",
              password_confirmation: "password")
+
+user3 = User.create(name:  "pepe",
+             email: "user1@hotmail.com",
+             departament_id: departament2.id,
+             password:              "password",
+             password_confirmation: "password")
+
+user4 = User.create(name:  "pepe",
+             email: "user2@hotmail.com",
+             departament_id: departament2.id,
+             password:              "password",
+             password_confirmation: "password")
+
+
 
 # 20.times do |n|
 #   name  = Faker::Name.name
@@ -36,14 +50,24 @@ user2 = User.create(name:  "pepe",
 
 
 
-ticket1 = Ticket.create(name: "error 1",  description: "mantenimiento1", departament_id: departament1.id)
-ticket2 = Ticket.create(name: 'error 2',  description: "mantenimiento2", departament_id: departament1.id)
-ticket3 = Ticket.create(name: 'error 3',  description: "mantenimiento3", departament_id: departament1.id)
-ticket4 = Ticket.create(name: 'error4',  description: "mantenimiento4", departament_id: departament1.id)
+ticket1 = Ticket.create(name: "error 1",  description: "mantenimiento 1", departament_id: departament1.id)
+ticket2 = Ticket.create(name: 'error 2',  description: "mantenimiento 2", departament_id: departament1.id)
+ticket3 = Ticket.create(name: 'error 3',  description: "mantenimiento 3", departament_id: departament1.id)
+ticket4 = Ticket.create(name: 'error 4',  description: "mantenimiento 4", departament_id: departament1.id)
+ticket5 = Ticket.create(name: 'error 5',  description: "mantenimiento 5", departament_id: departament1.id)
+ticket6 = Ticket.create(name: 'error 6',  description: "mantenimiento 6", departament_id: departament1.id)
+ticket7 = Ticket.create(name: 'error 7',  description: "mantenimiento 7", departament_id: departament1.id)
+ticket8 = Ticket.create(name: 'error 8',  description: "mantenimiento 8", departament_id: departament1.id)
 
 
-assignment1 = Assignment.create(status: "soporte", description: "mantenimiento", user_id: user2.id, ticket_id: ticket1.id)
-assignment2 = Assignment.create(status: "soporte", description: "mantenimiento", user_id: user2.id, ticket_id: ticket2.id )
+assignment1 = Assignment.create(status: "iniciado", description: "mantenimiento1", user_id: user2.id, ticket_id: ticket1.id)
+assignment2 = Assignment.create(status: "proceso", description: "mantenimiento2", user_id: user2.id, ticket_id: ticket2.id)
+assignment3 = Assignment.create(status: "iniciado", description: "mantenimiento3", user_id: user2.id, ticket_id: ticket4.id)
+assignment4 = Assignment.create(status: "terminado", description: "mantenimiento4", user_id: user2.id, ticket_id: ticket5.id)
+assignment5 = Assignment.create(status: "iniciado", description: "mantenimiento1", user_id: user2.id, ticket_id: ticket6.id)
+assignment6 = Assignment.create(status: "proceso", description: "mantenimiento2", user_id: user2.id, ticket_id: ticket7.id)
+assignment7 = Assignment.create(status: "iniciado", description: "mantenimiento3", user_id: user2.id, ticket_id: ticket8.id)
+assignment8 = Assignment.create(status: "terminado", description: "mantenimiento4", user_id: user2.id, ticket_id: ticket3.id)
 
 
 

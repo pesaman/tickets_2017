@@ -1,11 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-  <h1>Departaments</h1>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Assignments</h1>
 
   <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-12">
       <div class="text-center">
-        <%= link_to 'New Departament', new_departament_path, class: "btn btn-primary " %>
+        <%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary " %>
         
       </div>
     </div>
@@ -18,9 +19,6 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>Edit</th>
-        <th>Destroy</th>
-     
         
       </tr>
     
@@ -28,8 +26,9 @@
       <tr>
         <td><%= departament.name %></td>
         <td><%= departament.description %></td>
-        <td><%= link_to 'Edit', edit_departament_path(departament), class: "btn btn-warning btn-table" %></td>
-        <td><%= link_to 'Destroy', departament, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-table" %></td>
+        <td><%= link_to 'Show', departament %></td>
+        <td><%= link_to 'Edit', edit_departament_path(departament) %></td>
+        <td><%= link_to 'Destroy', departament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
 
